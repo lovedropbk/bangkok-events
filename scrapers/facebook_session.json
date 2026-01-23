@@ -1,0 +1,121 @@
+{
+  "cookies": [
+    {
+      "name": "datr",
+      "value": "fZVzab5zOHN8X-bYbHWOCPzM",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1803742589.950413,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "sb",
+      "value": "fZVzaSZ5-vaz_QVjR2RhMavg",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1803742732.16497,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "wd",
+      "value": "1280x900",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1769787453,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ps_l",
+      "value": "1",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1803742652.570312,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ps_n",
+      "value": "1",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1803742652.57041,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "timestamp",
+      "value": "176918200724872",
+      "domain": "meta-api.arkoselabs.com",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "c_user",
+      "value": "733072071",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1800718732.164793,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "xs",
+      "value": "7%3AaIGvVeec7Xae_w%3A2%3A1769182729%3A-1%3A-1",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1800718732.165041,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "fr",
+      "value": "0prkFzUpWnKUl1fWO.AWdFsqNmy2qA_GY5pqiUI81WtcU4EpbYLsQjzt2rwDOBhANunWA.Bpc5V9..AAA.0.0.Bpc5YM.AWc9j-xkovyMW7kgbhPFcVEKMrM",
+      "domain": ".facebook.com",
+      "path": "/",
+      "expires": 1776958732.593944,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://www.facebook.com",
+      "localStorage": [
+        {
+          "name": "signal_flush_timestamp",
+          "value": "1769182591043"
+        },
+        {
+          "name": "Session",
+          "value": "7ll2bu:1769182767611"
+        },
+        {
+          "name": "falco_queue_immediately^$^$fd0ab39fd1a061901",
+          "value": "{\"items\":[{\"name\":\"web_time_spent_navigation\",\"policy\":{\"r\":1},\"time\":1769182732611.5999,\"extra\":\"{\\\"cause\\\":\\\"unload\\\",\\\"custom_data_json\\\":\\\"{\\\\\\\"source_pa\\\\\\\":\\\\\\\"{\\\\\\\\\\\\\\\"0\\\\\\\\\\\\\\\":{\\\\\\\\\\\\\\\"bookmark_id\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"tp-two_step_verification.pre_authentication\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"bookmark_type_name\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"session\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"m8gitt:8ci93j:sz3ezp\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"subsession\\\\\\\\\\\\\\\":1,\\\\\\\\\\\\\\\"tap_point\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"via_cold_start\\\\\\\\\\\\\\\",\\\\\\\\\\\\\\\"timestamp\\\\\\\\\\\\\\\":1769182652901,\\\\\\\\\\\\\\\"trace_policy\\\\\\\\\\\\\\\":\\\\\\\\\\\\\\\"two_step_verification.pre_authentication\\\\\\\\\\\\\\\"}}\\\\\\\",\\\\\\\"source_pav2\\\\\\\":\\\\\\\"TwoStepVerificationRoot.react,two_step_verification.pre_authentication,via_cold_start,1769182652901,336220,,,\\\\\\\",\\\\\\\"source_uri\\\\\\\":\\\\\\\"/two_step_verification/authentication/?encrypted_context=ARHYnCyUr2N9OyG8-9bEiA9XRVSQVXU-fQ8Dvx7eGjFTRlnQ7KAmUZNdGfIUI0ZDxeTFLda-XWs9FaBZKosdZ28HEg4uFwx9gwtv6MbM8DNhMketNffJ-ROqemjmk5UER2yBWhXdUn_5sFGlJhuu28JFKz0eFexy0ZS-hIh9HVZPCOfvXRe_VJ-jJCg_lBhbGgkcibmULZcwWZ-_1ydKSBE2QphEkFLBsnl-yAKY5t5r8amR9ND2rRxCOd1VwIdHucOWwuGoP1aIN5Ua2ALXMPaDdw1hvTJ5AoMvE1n7UpzmaC86vfMvJveGCQOsYr9PJKoLcKL7OvnJmN_HubXprlauqIcctFw_4qlkj_dx_xVUmN6sNEhvG8jk0L7Nt2uAuW3chkd1S8lbhvtcJ-b_-uzhPZ0NrylMebzW0vDgpguTWQhGuOnOGRD1Kh9r8j7fNZGREo7lUzVyUc9DFhmWBaaEK6BIBqw9oiDsx72wExqcrJxfh1Zt9OGRDWQGzIO202kged5WL1K3J83rTWXurhxoutelzohS3UcQPNLUqJV0OPvnF22OOSbRUT82epjEygdfPTSHD1hnj2klM7DVhQA71o-TUmliPkZfH8ylKDlSPEPUVFtHjiy_vtC4-bvkYyxlAZLRgbEKppJPVyJmEc8NwVTuKJmqUhP_aonD2ZqRuKEtN_Nh74wiFmLZviQ2OGMWmQmERU2dPkdAO8YzGgXf65Y6uM5X-0RAAzIshZ1x4LYHp_FqyVqvz6LNs2W090JbmmGvCCVAwbqXppLG41EnY9CAYP39k7tMK2a9oG3_TAsaNr0BtcTliSMEHWpogrdxAFcb62tCiavX7znNfoH6tQIosr8O3nnzpVmlMRYL4xDdDdbdUoZWufPdU7EuVNZ7IBjUDbt1ALSyGJaP3KbNV4Mk5PPcsSf5guu3aj2uPtI8oV8pJSK0P4aIocgvlLEqvCR5LMNAGHMv3h8aA1hh5xYq8Mpwm8EX4CYreG6a0F9FNMRbRS6ETCcHIXckueMQwG-uIPuNNxHgR1UTGeZwHfry9XI_oSkJRZuTNNSMazwe5a0AxJniYyPoiOiO2UxyycInV8f35NHzXuIXOtiMpHU1buU-ECc3hCOoAfcG4nLLNcx8-pWDmfS-_3heLNpU6CCR9zZmhq277y0dFGu8tE-PuMRPR21qzjzgbhqh28_-9WEdiAYlIDLmoW56uSkcyzW5CHnz_grzb0A&flow=pre_authentication&next\\\\\\\",\\\\\\\"source_imp_id\\\\\\\":\\\\\\\"0irzou1pS8m9Kaecc\\\\\\\",\\\\\\\"source_visitation_id\\\\\\\":\\\\\\\"two_step_verification.pre_authentication:sz3ezp:1:1769182652.901\\\\\\\"}\\\",\\\"sid_raw\\\":\\\"7ll2bu:8ci93j:sz3ezp\\\",\\\"source_path\\\":\\\"two_step_verification.pre_authentication\\\"}\",\"tags\":[1,128],\"sessionId\":\"7ll2bu:8ci93j:sz3ezp\",\"deviceId\":\"$^|ARt5AZe2veWVPAhuhsBJQU7QhwhuFLVIJFr8Dz62rhp-euRzfBZQFrgFjgNlnY1tuJ6NIqNNjU9WGAPtUL8KGww|fd.ARsfyhLa8Lm3VNwGFwP4zp3nrp09BYnNG-0XEBQIgfX2za2-KyRSAVVFcMOYKYNOeA0ApkfRCGz4k1-yh4NXkyCD\",\"appVersion\":\"1032.369.516.0 (1032369516)\"},{\"name\":\"web_time_spent_bit_array\",\"policy\":{\"r\":1},\"time\":1769182732611.7998,\"extra\":\"{\\\"sid_raw\\\":\\\"7ll2bu:8ci93j:sz3ezp\\\",\\\"start_endpoint\\\":\\\"two_step_verification.pre_authentication\\\",\\\"start_event\\\":\\\"mousemove\\\",\\\"start_time\\\":1769182727,\\\"tos_array\\\":[23,0],\\\"tos_cum\\\":6,\\\"tos_id\\\":\\\"sz3ezp\\\",\\\"tos_len\\\":6,\\\"tos_seq\\\":1}\",\"tags\":[1,128],\"sessionId\":\"7ll2bu:8ci93j:sz3ezp\",\"deviceId\":\"$^|ARt5AZe2veWVPAhuhsBJQU7QhwhuFLVIJFr8Dz62rhp-euRzfBZQFrgFjgNlnY1tuJ6NIqNNjU9WGAPtUL8KGww|fd.ARsfyhLa8Lm3VNwGFwP4zp3nrp09BYnNG-0XEBQIgfX2za2-KyRSAVVFcMOYKYNOeA0ApkfRCGz4k1-yh4NXkyCD\",\"appVersion\":\"1032.369.516.0 (1032369516)\"}],\"ts\":1769182732611.7998}"
+        },
+        {
+          "name": "hb_timestamp",
+          "value": "1769182621000"
+        },
+        {
+          "name": "banzai:last_storage_flush",
+          "value": "1769182592020.7"
+        }
+      ]
+    }
+  ]
+}
