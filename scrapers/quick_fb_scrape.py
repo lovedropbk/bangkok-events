@@ -19,17 +19,35 @@ async def scrape_facebook():
         page = await context.new_page()
 
         print("Searching Facebook events...")
-        await page.goto(
-            "https://www.facebook.com/search/events/?q=bangkok%20party", timeout=30000
-        )
-        await asyncio.sleep(5)
 
-        for _ in range(3):
-            await page.evaluate("window.scrollBy(0, 1000)")
-            await asyncio.sleep(1)
+        # Use the working search URL format
+        searches = [
+            "https://www.facebook.com/events/search?q=bangkok%20party",
+            "https://www.facebook.com/events/search?q=bangkok%20nightlife",
+            "https://www.facebook.com/events/search?q=bangkok%20club",
+            "https://www.facebook.com/events/search?q=bangkok%20music",
+            "https://www.facebook.com/events/search?q=bangkok",
+        ]
 
-        content = await page.content()
-        events = list(set(re.findall(r"/events/(\d+)", content)))
+        all_event_ids = set()
+        for search_url in searches:
+            print(f"  Searching: {search_url.split('=')[-1]}")
+            try:
+                await page.goto(search_url, timeout=30000)
+                await asyncio.sleep(6)
+
+                for _ in range(4):
+                    await page.evaluate("window.scrollBy(0, 800)")
+                    await asyncio.sleep(1.5)
+
+                content = await page.content()
+                event_ids = set(re.findall(r"/events/(\d{10,})", content))
+                all_event_ids.update(event_ids)
+                print(f"    Found {len(event_ids)} events")
+            except Exception as e:
+                print(f"    Error: {str(e)[:30]}")
+
+        events = list(all_event_ids)
         print(f"Found {len(events)} events")
 
         scraped = []
