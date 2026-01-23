@@ -1,0 +1,58 @@
+name: Scrape Events and Deploy
+
+on:
+  schedule:
+    # Run daily at 6 AM UTC (1 PM Bangkok time)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install playwright aiohttp
+          playwright install chromium
+
+      - name: Restore Facebook session
+        env:
+          FB_SESSION: ${{ secrets.FB_SESSION }}
+        run: |
+          echo "$FB_SESSION" > scrapers/facebook_session.json
+
+      - name: Run Facebook scraper
+        run: |
+          cd scrapers
+          python quick_fb_scrape.py || echo "Scraping failed, using existing data"
+
+      - name: Update events.json
+        run: |
+          if [ -f scrapers/scraped_events.json ]; then
+            cp scrapers/scraped_events.json frontend/public/events.json
+            echo "Updated events.json with $(cat frontend/public/events.json | python -c 'import json,sys; print(len(json.load(sys.stdin)))') events"
+          fi
+
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add frontend/public/events.json
+          git diff --staged --quiet || git commit -m "Update events data [automated]"
+          git push
+
+      - name: Trigger Vercel deployment
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          # Vercel auto-deploys on push, but we can also trigger manually
+          echo "Deployment triggered via git push"
