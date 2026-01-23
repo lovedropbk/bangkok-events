@@ -6,6 +6,9 @@ on:
     - cron: '0 6 * * *'
   workflow_dispatch:  # Allow manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   scrape-and-deploy:
     runs-on: ubuntu-latest
@@ -23,6 +26,7 @@ jobs:
         run: |
           pip install playwright aiohttp
           playwright install chromium
+          playwright install-deps chromium
 
       - name: Restore Facebook session
         env:
@@ -30,16 +34,23 @@ jobs:
         run: |
           echo "$FB_SESSION" > scrapers/facebook_session.json
 
-      - name: Run Facebook scraper
+      - name: Run Facebook scraper (headless)
         run: |
           cd scrapers
-          python quick_fb_scrape.py || echo "Scraping failed, using existing data"
+          python headless_fb_scrape.py || echo "Scraping may have failed, checking for data..."
 
-      - name: Update events.json
+      - name: Update events.json if new data
         run: |
           if [ -f scrapers/scraped_events.json ]; then
-            cp scrapers/scraped_events.json frontend/public/events.json
-            echo "Updated events.json with $(cat frontend/public/events.json | python -c 'import json,sys; print(len(json.load(sys.stdin)))') events"
+            EVENT_COUNT=$(cat scrapers/scraped_events.json | python -c 'import json,sys; print(len(json.load(sys.stdin)))')
+            if [ "$EVENT_COUNT" -gt 0 ]; then
+              cp scrapers/scraped_events.json frontend/public/events.json
+              echo "Updated events.json with $EVENT_COUNT events"
+            else
+              echo "No new events scraped, keeping existing data"
+            fi
+          else
+            echo "No scraped_events.json found, keeping existing data"
           fi
 
       - name: Commit and push if changed
@@ -47,12 +58,18 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add frontend/public/events.json
-          git diff --staged --quiet || git commit -m "Update events data [automated]"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update events data [automated]"
+            git push
+          fi
 
-      - name: Trigger Vercel deployment
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Summary
         run: |
-          # Vercel auto-deploys on push, but we can also trigger manually
-          echo "Deployment triggered via git push"
+          echo "## Scrape Summary" >> $GITHUB_STEP_SUMMARY
+          if [ -f frontend/public/events.json ]; then
+            COUNT=$(cat frontend/public/events.json | python -c 'import json,sys; print(len(json.load(sys.stdin)))')
+            echo "Events in database: $COUNT" >> $GITHUB_STEP_SUMMARY
+          fi
+          echo "Vercel will auto-deploy on push" >> $GITHUB_STEP_SUMMARY
